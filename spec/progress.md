@@ -1,12 +1,12 @@
 # Progress
 
-Last updated: 2026-08-01
+Last updated: 2026-08-08
 
 ## Current Phase
 
-UI primitive migration and Workspace module UI foundation.
+Notes module review checkpoint.
 
-Before starting Notes, improve the shared layout and workspace UI so future modules inherit a better page structure.
+Workspace has a usable module foundation. Start Notes backend-first by creating the Note DocType, then add whitelisted APIs, then connect the frontend.
 
 ## Completed
 
@@ -54,22 +54,23 @@ Before starting Notes, improve the shared layout and workspace UI so future modu
 
 ## In Progress
 
-- Workspace UI polish:
-  - app shell spacing
-  - private layout padding
-  - page containers
-  - Workspaces page form card
-  - Workspaces page grid
-  - action grouping
-  - archived state rendering
+- Notes module:
+  - create Note DocType
+  - add Note backend APIs
+  - render notes list
+  - add create note flow
+  - add note details and edit flow
+  - add archive/favorite/delete note actions
+  - review Notes module UI and behavior
+  - align Notes detail back-link styling with Workspace detail
 
 ## Next
 
-1. Fix archived value rendering so `0` does not appear in React.
-2. Polish Workspace Details page with a header, edit card, and action grouping.
-3. Review UI in browser at desktop width.
-4. Commit workspace module checkpoint.
-5. Start Notes backend DocType.
+1. Create `Knowledge Hub Note` DocType.
+2. Run `bench --site kh.localhost migrate`.
+3. Review Notes module UI and behavior.
+4. Commit Notes module checkpoint.
+5. Start Tasks backend DocType.
 
 ## Pending Modules
 
