@@ -37,7 +37,8 @@
    "fieldname": "workspace",
    "fieldtype": "Link",
    "label": "Workspace",
-   "options": "Knowledge Hub Workspace"
+   "options": "Knowledge Hub Workspace",
+   "reqd": 1
   },
   {
    "default": "0",
@@ -55,8 +56,8 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-01 21:32:27.169432",
- "modified_by": "Administrator",
+ "modified": "2026-08-08 21:58:27.334494",
+ "modified_by": "krishnakmrs19@gmail.com",
  "module": "Knowledge Hub",
  "name": "Knowledge Hub Note",
  "owner": "Administrator",

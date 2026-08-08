@@ -33,7 +33,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-07-19 12:34:15.572351",
+ "modified": "2026-08-08 22:21:09.890069",
  "modified_by": "krishnakmrs19@gmail.com",
  "module": "Knowledge Hub",
  "name": "Knowledge Hub Workspace",
@@ -54,8 +54,10 @@
  ],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "title",
  "track_changes": 1
 }

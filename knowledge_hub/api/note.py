@@ -31,7 +31,7 @@ def _get_note_or_throw(name: str):
 
 def _validate_workspace_owner(workspace: str | None):
 	if not workspace:
-		return
+		frappe.throw(_("Workspace is required"), frappe.ValidationError)
 
 	workspace_owner = frappe.db.get_value(WORKSPACE_DOCTYPE, workspace, "owner")
 
