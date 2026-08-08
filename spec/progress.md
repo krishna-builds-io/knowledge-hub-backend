@@ -4,9 +4,9 @@ Last updated: 2026-08-08
 
 ## Current Phase
 
-Notes module review checkpoint.
+Notes module checkpoint ready to commit.
 
-Workspace has a usable module foundation. Start Notes backend-first by creating the Note DocType, then add whitelisted APIs, then connect the frontend.
+Workspace and Notes now have usable module foundations. Notes backend and frontend require the Note `workspace` link, and browser verification with real records passed.
 
 ## Completed
 
@@ -41,6 +41,20 @@ Workspace has a usable module foundation. Start Notes backend-first by creating 
   - archive/unarchive workspace
   - delete workspace with dialog
   - toast feedback
+- Notes frontend started:
+  - notes list
+  - create note dialog
+  - note details/edit page
+  - archive/favorite/delete actions
+  - workspace picker in note form
+  - required workspace TypeScript payloads
+  - workspace filter on notes list
+- Notes workspace relationship aligned:
+  - Note DocType `workspace` field is required
+  - Note API rejects create/update without workspace
+  - frontend schema requires workspace
+  - frontend build passes after workspace filter change
+  - browser verification passed with real workspace-linked notes
 - Shared UI components started:
   - button
   - card
@@ -49,28 +63,14 @@ Workspace has a usable module foundation. Start Notes backend-first by creating 
   - textarea
   - badge
   - dialog
+  - select
   - sonner/toaster
 - UI primitives migrated from Base UI to Radix UI.
 
-## In Progress
-
-- Notes module:
-  - create Note DocType
-  - add Note backend APIs
-  - render notes list
-  - add create note flow
-  - add note details and edit flow
-  - add archive/favorite/delete note actions
-  - review Notes module UI and behavior
-  - align Notes detail back-link styling with Workspace detail
-
 ## Next
 
-1. Create `Knowledge Hub Note` DocType.
-2. Run `bench --site kh.localhost migrate`.
-3. Review Notes module UI and behavior.
-4. Commit Notes module checkpoint.
-5. Start Tasks backend DocType.
+1. Commit Notes module checkpoint.
+2. Start Tasks backend DocType.
 
 ## Pending Modules
 
@@ -88,6 +88,7 @@ Workspace has a usable module foundation. Start Notes backend-first by creating 
 - Workspace archived fields may arrive from Frappe as `0` or `1`; normalize or cast before rendering.
 - Workspace form reset/default handling should be watched while editing.
 - Delete workspace behavior must be revisited when notes/tasks become child records.
+- Notes module is ready for a checkpoint commit.
 - Route-level code splitting can be added later.
 - Realtime synchronization can be added later with Frappe realtime events and React Query invalidation.
 
