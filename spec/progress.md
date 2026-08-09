@@ -4,9 +4,9 @@ Last updated: 2026-08-09
 
 ## Current Phase
 
-Dashboard verification checkpoint.
+Profile checkpoint ready to commit.
 
-Workspace, Notes, Tasks, and Search now have usable module foundations. Dashboard backend and frontend UI are in place; next step is browser verification.
+Workspace, Notes, Tasks, Search, Dashboard, and Profile now have usable module foundations. Profile browser verification passed; next step is committing the Profile checkpoint.
 
 ## Completed
 
@@ -125,6 +125,28 @@ Workspace, Notes, Tasks, and Search now have usable module foundations. Dashboar
   - reusable date formatting utility added
   - Dashboard recent note and task due dates use formatted dates
   - frontend build passes after date formatting
+- Dashboard module checkpoint completed.
+- Profile backend started:
+  - `knowledge_hub.api.profile.get_profile` added
+  - `knowledge_hub.api.profile.update_profile` added
+  - `knowledge_hub.api.profile.change_password` added
+  - profile API keeps email read-only for v1
+  - password change verifies old password before updating
+  - wrong current password returns validation error without clearing session
+  - profile API syntax check passed with `python3 -m py_compile`
+- Profile frontend started:
+  - Profile TypeScript types added
+  - Profile API functions added
+  - Profile React Query hooks added
+  - Profile mutation hooks include error toasts
+  - frontend build passes after Profile API/hooks
+  - Profile form schemas added
+  - profile details form added
+  - password change form added
+  - frontend build passes after Profile forms
+  - Profile page wired with account and password forms
+  - frontend build passes after Profile page
+  - Profile browser verification passed
 - Shared UI components started:
   - button
   - card
@@ -139,9 +161,8 @@ Workspace, Notes, Tasks, and Search now have usable module foundations. Dashboar
 
 ## Next
 
-1. Verify Dashboard formatted dates in browser.
-2. Commit Dashboard module checkpoint.
-3. Start Profile module.
+1. Commit Profile module checkpoint.
+2. Start Settings module.
 
 ## Pending Modules
 
@@ -164,6 +185,7 @@ Workspace, Notes, Tasks, and Search now have usable module foundations. Dashboar
 - Route-level code splitting can be added later.
 - Realtime synchronization can be added later with Frappe realtime events and React Query invalidation.
 - Search API permission behavior was manually verified by user.
+- Profile v1 should keep email read-only and allow full name/password updates only.
 
 ## Manual Learning Checkpoints
 
