@@ -259,12 +259,23 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - taxonomy API syntax check passed with `python3 -m py_compile`
   - taxonomy API integration tests added
   - taxonomy API test run completed with 20 tests
+  - taxonomy API and tests committed
+  - Note API category/tag support added
+  - existing Note API test run completed with 11 tests after category/tag changes
+  - Note API category/tag integration tests added
+  - Note API test run completed with 17 tests
+  - Task API category/tag support started
+  - existing Task API test run completed with 15 tests after category/tag create/list changes
+  - Task API update category/tag support completed
+  - existing Task API test run completed with 15 tests after category/tag update changes
+  - Task API category/tag integration tests added
+  - Task API test run completed with 21 tests
 
 ## Next
 
-1. Commit taxonomy API and tests.
-2. Update Note APIs to support category and tags.
-3. Update Task APIs to support category and tags.
+1. Run full backend app test suite on `kh.localhost`.
+2. Commit Note and Task taxonomy API updates.
+3. Start frontend taxonomy data layer.
 
 ## Pending Modules
 

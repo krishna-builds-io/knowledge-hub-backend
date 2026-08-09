@@ -3,6 +3,9 @@ from frappe import _
 
 TASK_DOCTYPE = "Knowledge Hub Task"
 WORKSPACE_DOCTYPE = "Knowledge Hub Workspace"
+CATEGORY_DOCTYPE = "Knowledge Hub Category"
+TAG_DOCTYPE = "Knowledge Hub Tag"
+TASK_TAG_DOCTYPE = "Knowledge Hub Task Tag"
 
 VALID_STATUSES = {"Open", "In Progress", "Done", "Blocked"}
 VALID_PRIORITIES = {"Low", "Medium", "High", "Urgent"}
@@ -14,6 +17,8 @@ def _serialize_task(doc):
 		"title": doc.title,
 		"description": doc.description,
 		"workspace": doc.workspace,
+		"category": doc.category,
+		"tags": _get_task_tag_names(doc.name),
 		"status": doc.status,
 		"priority": doc.priority,
 		"due_date": doc.due_date,
@@ -52,19 +57,108 @@ def _validate_task_options(status: str, priority: str):
 	if priority not in VALID_PRIORITIES:
 		frappe.throw(_("Invalid priority"), frappe.ValidationError)
 
+def _get_task_tag_names(task: str):
+	rows = frappe.get_all(
+		TASK_TAG_DOCTYPE,
+		filters={"parent": task},
+		fields=["tag"],
+		order_by="idx asc",
+	)
+
+	return [row.tag for row in rows]
+
+
+def _normalize_tags(tags: list[str] | None):
+	if not tags:
+		return []
+
+	unique_tags = []
+
+	for tag in tags:
+		if tag and tag not in unique_tags:
+			unique_tags.append(tag)
+
+	return unique_tags
+
+
+def _validate_category_owner(category: str | None):
+	if not category:
+		return
+
+	category_owner = frappe.db.get_value(CATEGORY_DOCTYPE, category, "owner")
+
+	if not category_owner:
+		frappe.throw(_("Category not found"), frappe.DoesNotExistError)
+
+	if category_owner != frappe.session.user:
+		frappe.throw(_("Not permitted"), frappe.PermissionError)
+
+
+def _validate_tag_owners(tags: list[str] | None):
+	for tag in _normalize_tags(tags):
+		tag_owner = frappe.db.get_value(TAG_DOCTYPE, tag, "owner")
+
+		if not tag_owner:
+			frappe.throw(_("Tag not found"), frappe.DoesNotExistError)
+
+		if tag_owner != frappe.session.user:
+			frappe.throw(_("Not permitted"), frappe.PermissionError)
+
+
+def _set_task_tags(doc, tags: list[str] | None):
+	doc.set("tags", [])
+
+	for tag in _normalize_tags(tags):
+		doc.append("tags", {"tag": tag})
 		
 @frappe.whitelist(methods=["GET"])
-def list_tasks(workspace: str | None = None):
+def list_tasks(
+	workspace: str | None = None,
+	category: str | None = None,
+	tag: str| None = None
+	):
 	filters = {"owner": frappe.session.user}
 
 	if workspace:
 		_validate_workspace_owner(workspace)
 		filters["workspace"] = workspace
 
+	if category:
+		_validate_category_owner(category)
+		filters["category"] = category
+
+	if tag:
+		_validate_tag_owners([tag])
+		task_names = [
+			row.parent
+			for row in frappe.get_all(
+				TASK_TAG_DOCTYPE,
+				filters={"tag": tag},
+				fields=["parent"],
+			)
+		]
+
+		if not task_names:
+			return []
+
+		filters["name"] = ["in", task_names]
+
 	return frappe.get_all(
 		TASK_DOCTYPE,
 		filters=filters,
-		fields=["name", "title", "description", "workspace", "status", "priority", "due_date", "completed", "creation", "modified"],
+		fields=[
+			"name",
+			"title",
+			"description",
+			"workspace",
+			"category",
+			"status",
+			"priority",
+			"due_date",
+			"completed",
+			"creation",
+			"modified",
+		],
 		order_by="modified desc",
 	)
 
@@ -78,6 +172,8 @@ def get_task(name: str):
 def create_task(
 	title: str,
 	workspace: str | None = None,
+	category: str | None = None,
+	tags: list[str] | None = None,
 	description: str | None = None,
 	status: str = "Open",
 	priority: str = "Medium",
@@ -85,17 +181,21 @@ def create_task(
 ):
 	_validate_workspace_owner(workspace)
 	_validate_task_options(status, priority)
+	_validate_category_owner(category)
+	_validate_tag_owners(tags)
 
 	doc = frappe.get_doc({
 		"doctype": TASK_DOCTYPE,
 		"title": title,
 		"description": description,
 		"workspace": workspace,
+		"category": category,
 		"status": status,
 		"priority": priority,
 		"due_date": due_date,
 		"completed": 1 if status == "Done" else 0,
 	})
+	_set_task_tags(doc, tags)
 	doc.insert()
 
 	return _serialize_task(doc)
@@ -110,10 +210,14 @@ def update_task(
 	status: str = "Open",
 	priority: str = "Medium",
 	due_date: str | None = None,
+	category: str | None = None,
+	tags: list[str] | None = None,
 ):
 	doc = _get_task_or_throw(name)
 	_validate_workspace_owner(workspace)
 	_validate_task_options(status, priority)
+	_validate_category_owner(category)
+	_validate_tag_owners(tags)
 
 	doc.title = title
 	doc.description = description
@@ -122,6 +226,8 @@ def update_task(
 	doc.priority = priority
 	doc.due_date = due_date
 	doc.completed = 1 if status == "Done" else 0
+	doc.category = category
+	_set_task_tags(doc, tags)
 	doc.save()
 
 	return _serialize_task(doc)
