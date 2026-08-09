@@ -4,9 +4,9 @@ Last updated: 2026-08-09
 
 ## Current Phase
 
-Search checkpoint ready to commit.
+Dashboard verification checkpoint.
 
-Workspace, Notes, Tasks, and Search now have usable module foundations. Search page includes debounced querying and is ready for checkpoint commit.
+Workspace, Notes, Tasks, and Search now have usable module foundations. Dashboard backend and frontend UI are in place; next step is browser verification.
 
 ## Completed
 
@@ -106,6 +106,25 @@ Workspace, Notes, Tasks, and Search now have usable module foundations. Search p
   - reusable debounce hook added
   - Search page uses debounced query input
   - frontend build passes after debounce
+- Search module checkpoint completed.
+- Dashboard backend started:
+  - `knowledge_hub.api.dashboard.summary` added
+  - summary includes workspace count, note count, pending task count, recent notes, and pending tasks
+  - summary API is scoped to `frappe.session.user`
+  - dashboard API syntax check passed with `python3 -m py_compile`
+- Dashboard frontend started:
+  - Dashboard TypeScript types added
+  - Dashboard API function added
+  - Dashboard React Query hook added
+  - frontend build passes after Dashboard API/hook
+  - Dashboard stats cards added
+  - Dashboard recent notes section added
+  - Dashboard pending tasks section added
+  - Dashboard quick navigation actions added
+  - frontend build passes after Dashboard page UI
+  - reusable date formatting utility added
+  - Dashboard recent note and task due dates use formatted dates
+  - frontend build passes after date formatting
 - Shared UI components started:
   - button
   - card
@@ -120,9 +139,9 @@ Workspace, Notes, Tasks, and Search now have usable module foundations. Search p
 
 ## Next
 
-1. Optionally rename `debounceQuery` to `debouncedQuery` for readability.
-2. Commit Search module checkpoint.
-3. Start Dashboard module.
+1. Verify Dashboard formatted dates in browser.
+2. Commit Dashboard module checkpoint.
+3. Start Profile module.
 
 ## Pending Modules
 
