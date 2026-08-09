@@ -270,12 +270,14 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - existing Task API test run completed with 15 tests after category/tag update changes
   - Task API category/tag integration tests added
   - Task API test run completed with 21 tests
+  - full backend app test suite completed with 84 tests
+  - Note and Task taxonomy API updates committed
 
 ## Next
 
-1. Run full backend app test suite on `kh.localhost`.
-2. Commit Note and Task taxonomy API updates.
-3. Start frontend taxonomy data layer.
+1. Commit backend taxonomy progress update.
+2. Start frontend taxonomy data layer.
+3. Wire category and tag options into Note forms.
 
 ## Pending Modules
 
