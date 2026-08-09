@@ -4,9 +4,9 @@ Last updated: 2026-08-09
 
 ## Current Phase
 
-API error message UX checkpoint.
+Final review checkpoint.
 
-Workspace, Notes, Tasks, Search, Dashboard, and Profile now have usable module foundations. Profile browser verification passed; cross-module API error messages now surface server details instead of only generic fallbacks.
+Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usable module foundations. Cross-module API error messages surface server details instead of only generic fallbacks. Frontend polish is mostly complete; the project is ready for final review and commit preparation.
 
 ## Completed
 
@@ -155,6 +155,28 @@ Workspace, Notes, Tasks, Search, Dashboard, and Profile now have usable module f
   - profile mutation hooks show server error messages
   - login page shows server error message
   - frontend build passes after API error-message updates
+- Settings backend started:
+  - `Knowledge Hub User Preference` DocType created
+  - user preference DocType uses `user` as unique autoname field
+  - theme Select supports System, Light, and Dark
+  - preferences JSON storage added as Long Text
+  - `knowledge_hub.api.settings.get_preferences` added
+  - `knowledge_hub.api.settings.update_preferences` added
+  - settings API syntax check passed with `python3 -m py_compile`
+- Settings frontend started:
+  - Settings TypeScript types added
+  - Settings API functions added
+  - Settings React Query hooks added
+  - frontend build passes after Settings data layer
+  - Settings preference form component added
+  - frontend build passes after Settings preference form
+  - Settings page wired to preferences query and update mutation
+  - frontend build passes after Settings page wiring
+  - `next-themes` provider added
+  - saved Settings theme preference sync added
+  - frontend build passes after theme application wiring
+  - Settings theme preference verified in browser
+  - Settings module checkpoint completed
 - Shared UI components started:
   - button
   - card
@@ -166,21 +188,37 @@ Workspace, Notes, Tasks, Search, Dashboard, and Profile now have usable module f
   - select
   - sonner/toaster
 - UI primitives migrated from Base UI to Radix UI.
+- Frontend polish started:
+  - `main.tsx` imports and provider setup formatting cleaned
+  - `PrivateLayout.tsx` formatting cleaned
+  - sidebar navigation icons and spacing added
+  - reusable `PageHeader` component added
+  - `PageHeader` applied to Settings, Dashboard, Notes, Search, Profile, Workspaces, and Tasks
+  - Dashboard header actions moved into `PageHeader.actions`
+  - Dashboard page formatting cleaned
+  - Notes import order cleaned
+  - Notes extra blank lines cleaned
+  - Workspaces page formatting cleaned
+  - Tasks page formatting cleaned
+  - Search page formatting cleaned
+  - Profile page formatting cleaned
+  - mobile top navigation layout fixed
+  - minor `PrivateLayout.tsx` class array typo fixed
+  - Login page polished with shared UI components
+  - Login page verified in light/dark modes
+  - frontend build passes after Login polish
+  - settings API syntax check passes after final review
+  - frontend/backend changed-file review completed
 
 ## Next
 
-1. Verify server error messages in browser for one or two failing actions.
-2. Commit Profile/error-message checkpoint.
-3. Start Settings module.
+1. Commit current Settings and frontend polish milestone.
+2. Plan next feature/follow-up work.
+3. Continue browser regression checks as needed.
 
 ## Pending Modules
 
-- Dashboard
-- Notes
-- Tasks
-- Search
-- Profile
-- Settings
+- None for MVP module foundation
 
 ## Known Issues / Follow-ups
 
