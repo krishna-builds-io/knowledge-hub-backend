@@ -233,12 +233,13 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - Dashboard API test run completed with 4 tests
   - Dashboard API tests milestone committed
   - Full backend app test suite completed with 52 tests
+  - Frontend production build verification passed
 
 ## Next
 
-1. Commit full backend test-suite progress update.
-2. Run frontend production build verification.
-3. Review final MVP readiness gaps from specs and regression checklist.
+1. Commit frontend build progress update.
+2. Review final MVP readiness gaps from specs and regression checklist.
+3. Decide final polish scope before closing MVP.
 
 ## Pending Modules
 
