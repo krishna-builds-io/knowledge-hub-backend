@@ -4,9 +4,9 @@ Last updated: 2026-08-09
 
 ## Current Phase
 
-Tasks checkpoint ready to commit.
+Search checkpoint ready to commit.
 
-Workspace, Notes, and Tasks now have usable module foundations. Task create/list/detail/edit/complete/delete browser verification passed; next step is committing the Tasks checkpoint.
+Workspace, Notes, Tasks, and Search now have usable module foundations. Search page includes debounced querying and is ready for checkpoint commit.
 
 ## Completed
 
@@ -87,6 +87,25 @@ Workspace, Notes, and Tasks now have usable module foundations. Task create/list
   - delete task action wired into `TaskDetails.tsx`
   - frontend build passes after delete action
   - browser verification passed for task create/list/detail/edit/complete/delete
+- Tasks module checkpoint completed.
+- Search backend started:
+  - `knowledge_hub.api.search.global_search` added
+  - global search supports workspaces, notes, tasks, and all types
+  - global search is scoped to `frappe.session.user`
+  - search API syntax check passed with `python3 -m py_compile`
+- Search frontend started:
+  - Search TypeScript types added
+  - Search API function added
+  - Search React Query hook added
+  - frontend build passes after Search API/hook
+  - Search result card added
+  - Search page input and type filter added
+  - Search empty/loading/error states added
+  - frontend build passes after Search page UI
+  - Search browser verification passed
+  - reusable debounce hook added
+  - Search page uses debounced query input
+  - frontend build passes after debounce
 - Shared UI components started:
   - button
   - card
@@ -101,8 +120,9 @@ Workspace, Notes, and Tasks now have usable module foundations. Task create/list
 
 ## Next
 
-1. Commit Tasks module checkpoint.
-2. Start Search module.
+1. Optionally rename `debounceQuery` to `debouncedQuery` for readability.
+2. Commit Search module checkpoint.
+3. Start Dashboard module.
 
 ## Pending Modules
 
@@ -124,6 +144,7 @@ Workspace, Notes, and Tasks now have usable module foundations. Task create/list
 - Required-field `*` indicators are intentionally deferred; validation remains handled by Zod/React Hook Form.
 - Route-level code splitting can be added later.
 - Realtime synchronization can be added later with Frappe realtime events and React Query invalidation.
+- Search API permission behavior was manually verified by user.
 
 ## Manual Learning Checkpoints
 
