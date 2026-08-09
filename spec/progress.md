@@ -228,12 +228,15 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - Profile and Settings API tests milestone committed
   - Search API integration tests added
   - Search API test run completed with 7 tests
+  - Search API tests milestone committed
+  - Dashboard API integration tests added
+  - Dashboard API test run completed with 4 tests
 
 ## Next
 
-1. Commit Search API tests.
-2. Add Dashboard API integration tests.
-3. Run Dashboard API tests on `kh.localhost`.
+1. Commit Dashboard API tests.
+2. Run full backend app test suite on `kh.localhost`.
+3. Reconcile any full-suite failures or warnings.
 
 ## Pending Modules
 
