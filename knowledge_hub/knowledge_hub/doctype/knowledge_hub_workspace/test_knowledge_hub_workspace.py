@@ -13,10 +13,8 @@ from knowledge_hub.api.workspace import (
 	update_workspace,
 )
 
-
 EXTRA_TEST_RECORD_DEPENDENCIES = []
 IGNORE_TEST_RECORD_DEPENDENCIES = []
-
 
 def create_test_user(email: str):
 	if frappe.db.exists("User", email):
@@ -34,8 +32,6 @@ def create_test_user(email: str):
 	user.insert(ignore_permissions=True)
 
 	return user
-
-
 
 class IntegrationTestKnowledgeHubWorkspace(IntegrationTestCase):
 	def setUp(self):
