@@ -231,12 +231,14 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - Search API tests milestone committed
   - Dashboard API integration tests added
   - Dashboard API test run completed with 4 tests
+  - Dashboard API tests milestone committed
+  - Full backend app test suite completed with 52 tests
 
 ## Next
 
-1. Commit Dashboard API tests.
-2. Run full backend app test suite on `kh.localhost`.
-3. Reconcile any full-suite failures or warnings.
+1. Commit full backend test-suite progress update.
+2. Run frontend production build verification.
+3. Review final MVP readiness gaps from specs and regression checklist.
 
 ## Pending Modules
 
