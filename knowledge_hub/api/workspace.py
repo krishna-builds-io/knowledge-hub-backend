@@ -3,6 +3,8 @@ from frappe import _
 
 
 DOCTYPE = "Knowledge Hub Workspace"
+NOTE_DOCTYPE = "Knowledge Hub Note"
+TASK_DOCTYPE = "Knowledge Hub Task"
 
 
 def _get_workspace_or_throw(name: str):
@@ -87,6 +89,14 @@ def update_workspace(name: str, title: str, description: str | None = None):
 @frappe.whitelist()
 def delete_workspace(name: str):
     doc = _get_workspace_or_throw(name)
+    note_count = frappe.db.count(NOTE_DOCTYPE, {"workspace": name})
+    task_count = frappe.db.count(TASK_DOCTYPE, {"workspace": name})
+
+    if note_count or task_count:
+        frappe.throw(
+            _("This workspace contains notes or tasks. Archive it instead, or delete the linked records first."),
+            frappe.ValidationError,
+        )
     doc.delete()
 
     return {
