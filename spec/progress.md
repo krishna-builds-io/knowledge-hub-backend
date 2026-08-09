@@ -234,14 +234,15 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - Dashboard API tests milestone committed
   - Full backend app test suite completed with 52 tests
   - Frontend production build verification passed
+  - Frontend lint verification completed with 0 errors and 2 Fast Refresh warnings
 - MVP readiness review started:
   - `spec/mvp-readiness-review.md` added
   - MVP modules checked against `PRD.md`, `FBD.md`, and `SDD.md`
 
 ## Next
 
-1. Commit MVP readiness review progress.
-2. Run frontend lint verification.
+1. Decide whether to keep or clean the two shadcn/ui Fast Refresh lint warnings.
+2. Commit frontend lint progress update.
 3. Complete final manual regression checklist on desktop and mobile.
 
 ## Pending Modules
@@ -251,6 +252,7 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
 ## Known Issues / Follow-ups
 
 - Vite build shows a bundle-size warning. This is acceptable for now.
+- Frontend lint has 2 Fast Refresh warnings from `buttonVariants` and `badgeVariants` exports; these are non-blocking but can be cleaned by moving variants to separate files.
 - UI components now use Radix UI primitives through shadcn/ui.
 - Workspace archived fields may arrive from Frappe as `0` or `1`; normalize or cast before rendering.
 - Workspace form reset/default handling should be watched while editing.
