@@ -1,12 +1,12 @@
 # Progress
 
-Last updated: 2026-08-08
+Last updated: 2026-08-09
 
 ## Current Phase
 
-Notes module checkpoint ready to commit.
+Tasks checkpoint ready to commit.
 
-Workspace and Notes now have usable module foundations. Notes backend and frontend require the Note `workspace` link, and browser verification with real records passed.
+Workspace, Notes, and Tasks now have usable module foundations. Task create/list/detail/edit/complete/delete browser verification passed; next step is committing the Tasks checkpoint.
 
 ## Completed
 
@@ -55,6 +55,38 @@ Workspace and Notes now have usable module foundations. Notes backend and fronte
   - frontend schema requires workspace
   - frontend build passes after workspace filter change
   - browser verification passed with real workspace-linked notes
+- Notes module checkpoint completed.
+- Tasks backend started:
+  - `Knowledge Hub Task` DocType created
+  - task `workspace` field is required
+  - task status, priority, due date, and completed fields exist
+  - Task API file added
+  - task API syntax check passed with `python3 -m py_compile`
+  - Task APIs manually verified
+- Tasks frontend started:
+  - Task TypeScript types added
+  - Task API functions added
+  - Task React Query hooks added
+  - Task mutation hooks include error toasts
+  - frontend build passes after Task hooks
+  - Tasks list page added
+  - Task card added
+  - Task status and priority badges added
+  - frontend build passes after Tasks list page
+  - task form schema added
+  - reusable `TaskForm` added
+  - `CreateTaskDialog` added
+  - `Add Task` button wired into `Tasks.tsx`
+  - frontend build passes after create task flow
+  - Due Date label association fixed in `TaskForm`
+  - `TaskDetails.tsx` added
+  - task edit flow added
+  - complete/reopen action added
+  - frontend build passes after Task details page
+  - delete task dialog added
+  - delete task action wired into `TaskDetails.tsx`
+  - frontend build passes after delete action
+  - browser verification passed for task create/list/detail/edit/complete/delete
 - Shared UI components started:
   - button
   - card
@@ -69,8 +101,8 @@ Workspace and Notes now have usable module foundations. Notes backend and fronte
 
 ## Next
 
-1. Commit Notes module checkpoint.
-2. Start Tasks backend DocType.
+1. Commit Tasks module checkpoint.
+2. Start Search module.
 
 ## Pending Modules
 
@@ -88,7 +120,8 @@ Workspace and Notes now have usable module foundations. Notes backend and fronte
 - Workspace archived fields may arrive from Frappe as `0` or `1`; normalize or cast before rendering.
 - Workspace form reset/default handling should be watched while editing.
 - Delete workspace behavior must be revisited when notes/tasks become child records.
-- Notes module is ready for a checkpoint commit.
+- Tasks spec currently says workspace is optional, but implementation now uses required workspace for consistency with Notes.
+- Required-field `*` indicators are intentionally deferred; validation remains handled by Zod/React Hook Form.
 - Route-level code splitting can be added later.
 - Realtime synchronization can be added later with Frappe realtime events and React Query invalidation.
 
