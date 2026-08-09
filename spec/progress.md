@@ -6,7 +6,7 @@ Last updated: 2026-08-09
 
 Version 2 planning.
 
-Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usable module foundations. Cross-module API error messages surface server details instead of only generic fallbacks. Backend integration tests pass with 52 tests, the frontend production build passes, frontend lint has 0 errors, and manual regression has passed. MVP is ready to close after committing the final workspace delete handling.
+Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usable module foundations. Cross-module API error messages surface server details instead of only generic fallbacks. Backend integration tests pass with 52 tests, the frontend production build passes, frontend lint has 0 errors, and manual regression has passed. Version 2 starts with Tags and Categories.
 
 ## Completed
 
@@ -240,12 +240,16 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - MVP modules checked against `PRD.md`, `FBD.md`, and `SDD.md`
   - Manual regression completed by user
   - Workspace protected-delete behavior with linked notes/tasks verified by user
+- Version 2 planning started:
+  - Tags and Categories selected as the first Version 2 feature
+  - `spec/tags-categories.md` added
+  - `PRD.md`, `FBD.md`, and `SDD.md` updated for taxonomy scope
 
 ## Next
 
-1. Commit final MVP closeout updates.
-2. Start Version 2 with Tags and Categories planning.
-3. Update specs for the selected Version 2 feature.
+1. Commit Version 2 Tags and Categories planning.
+2. Design backend DocTypes for Category, Tag, Note Tag, and Task Tag.
+3. Add taxonomy backend APIs and tests.
 
 ## Pending Modules
 

@@ -19,9 +19,15 @@ Allow users to store knowledge inside workspaces.
 ## Future Scope
 
 - Rich text editor
-- Tags
-- Categories
+- Tags and categories
 - File attachments
+
+## Version 2 Scope
+
+- Assign one category to a note
+- Assign multiple tags to a note
+- Filter notes by category and tag
+- Include category and tags in note detail/list responses
 
 ## Frontend
 
@@ -62,6 +68,8 @@ Suggested fields:
 - `content` - Long Text
 - `content_type` - Select, default `plain_text`
 - `workspace` - Link to Knowledge Hub Workspace
+- `category` - Link to Knowledge Hub Category
+- `tags` - Table to Knowledge Hub Note Tag
 - `favorite` - Check, default 0
 - `archived` - Check, default 0
 
@@ -80,8 +88,8 @@ delete_note
 ## Data and Permissions
 
 - Notes belong to the current user.
-- Notes may optionally belong to a workspace.
-- Backend must verify ownership of the note and workspace.
+- Notes belong to a workspace.
+- Backend must verify ownership of the note, workspace, category, and tags.
 
 ## Definition of Done
 

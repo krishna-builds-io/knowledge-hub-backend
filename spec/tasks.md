@@ -16,6 +16,13 @@ Allow users to track work items inside workspaces.
 - Set priority
 - Set due date
 
+## Version 2 Scope
+
+- Assign one category to a task
+- Assign multiple tags to a task
+- Filter tasks by category and tag
+- Include category and tags in task detail/list responses
+
 ## Frontend
 
 Feature folder:
@@ -57,6 +64,8 @@ Suggested fields:
 - `status` - Select
 - `priority` - Select
 - `workspace` - Link to Knowledge Hub Workspace
+- `category` - Link to Knowledge Hub Category
+- `tags` - Table to Knowledge Hub Task Tag
 - `due_date` - Date
 - `completed` - Check, default 0
 
@@ -74,8 +83,8 @@ delete_task
 ## Data and Permissions
 
 - Tasks belong to the current user.
-- Tasks may optionally belong to a workspace.
-- Backend must verify ownership before reads and writes.
+- Tasks belong to a workspace.
+- Backend must verify ownership of the task, workspace, category, and tags before reads and writes.
 
 ## Definition of Done
 

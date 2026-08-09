@@ -119,6 +119,30 @@ Version 1 will include the following modules.
 
 Advanced capabilities are tracked in the roadmap and are intentionally introduced after the foundation is stable.
 
+## Version 2 Focus
+
+Version 2 starts with taxonomy: categories and tags for notes and tasks.
+
+Purpose
+
+Help users organize and filter information across workspaces without requiring a richer editor or file handling yet.
+
+Features
+
+-   Create and manage categories
+    
+-   Create and manage tags
+    
+-   Assign one category to a note or task
+    
+-   Assign multiple tags to a note or task
+    
+-   Filter notes and tasks by category and tag
+    
+-   Improve search with category and tag filters
+    
+Future Version 2 work can then build on this foundation with rich text editing, attachments, activity timelines, avatar upload, and advanced preferences.
+
 ## Authentication
 
 Purpose

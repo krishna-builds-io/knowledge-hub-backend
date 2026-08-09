@@ -40,11 +40,18 @@ Capabilities:
 
 ## Version 2
 
+First checkpoint:
+
+* Categories for notes and tasks
+* Tags for notes and tasks
+* Category and tag filters
+* Search filters using category and tag
+
+Later checkpoints:
+
 * Rich Text Editor
 * File Attachments
 * Activity Timeline
-* Categories
-* Tags
 * Avatar Upload
 * Advanced Preferences
 * Advanced Search Filters
@@ -478,6 +485,93 @@ PreferenceForm
 ### APIs
 
 Update Preferences
+
+---
+
+# Module 9 — Tags and Categories
+
+## Purpose
+
+Organize notes and tasks with reusable labels.
+
+Categories provide one primary grouping. Tags provide flexible multi-label organization.
+
+---
+
+### User Stories
+
+User can
+
+* Create category
+* Edit category
+* Archive category
+* Create tag
+* Edit tag
+* Archive tag
+* Assign category to note
+* Assign category to task
+* Assign tags to note
+* Assign tags to task
+* Filter notes by category and tag
+* Filter tasks by category and tag
+
+---
+
+### Pages
+
+Settings
+
+Notes List
+
+Note Details
+
+Tasks List
+
+Task Details
+
+Search Results
+
+---
+
+### Components
+
+* CategorySelect
+* CategoryBadge
+* CategoryForm
+* TagPicker
+* TagBadge
+* TagForm
+* TaxonomyFilter
+
+---
+
+### APIs
+
+List Categories
+
+Create Category
+
+Update Category
+
+Archive Category
+
+Delete Category
+
+List Tags
+
+Create Tag
+
+Update Tag
+
+Archive Tag
+
+Delete Tag
+
+---
+
+### Dependencies
+
+This module depends on Workspaces, Notes, Tasks, Search, and Settings.
 
 ---
 

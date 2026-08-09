@@ -151,6 +151,10 @@ doctype/
     knowledge_hub_note/
     knowledge_hub_task/
     knowledge_hub_user_preference/
+    knowledge_hub_category/
+    knowledge_hub_tag/
+    knowledge_hub_note_tag/
+    knowledge_hub_task_tag/
 
 api/
     auth.py
@@ -161,6 +165,7 @@ api/
     search.py
     profile.py
     settings.py
+    taxonomy.py
 
 utils/
 
@@ -339,6 +344,10 @@ content_type
 
 workspace
 
+category
+
+tags
+
 favorite
 
 archived
@@ -368,6 +377,10 @@ status
 priority
 
 workspace
+
+category
+
+tags
 
 due_date
 
@@ -410,6 +423,72 @@ updated_at
 
 ---
 
+## Category
+
+```text
+Knowledge Hub Category
+
+name
+
+title
+
+description
+
+color
+
+archived
+
+owner
+
+created_at
+
+updated_at
+```
+
+---
+
+## Tag
+
+```text
+Knowledge Hub Tag
+
+name
+
+title
+
+color
+
+archived
+
+owner
+
+created_at
+
+updated_at
+```
+
+---
+
+## Note Tag
+
+```text
+Knowledge Hub Note Tag
+
+tag
+```
+
+---
+
+## Task Tag
+
+```text
+Knowledge Hub Task Tag
+
+tag
+```
+
+---
+
 # 8. Entity Relationships
 
 ```text
@@ -427,12 +506,20 @@ User
 
 │        └── Tasks (1:N)
 
+├── Categories (1:N)
+
+├── Tags (1:N)
+
 └── User Preference (1:1)
 ```
 
 One user can own multiple workspaces.
 
 Each workspace contains notes and tasks.
+
+Each note and task can have one category.
+
+Each note and task can have many tags.
 
 Each user has one preferences record for Knowledge Hub-specific settings.
 
@@ -445,8 +532,10 @@ All Version 1 data is private to the logged-in user.
 Rules:
 
 * Workspace, Note, Task, and User Preference records must include an owner or user reference.
+* Category and Tag records must include an owner.
 * List APIs return only records owned by the logged-in user.
 * Detail, update, delete, archive, favorite, and complete APIs must verify ownership before changing data.
+* Note and Task create/update APIs must verify ownership of linked workspace, category, and tags.
 * React must never trust hidden form values such as owner; the backend sets ownership from the active session.
 * Deleting a workspace must define what happens to child notes and tasks before implementation. Version 1 should use either protected delete when children exist or a soft archive flow.
 
@@ -550,6 +639,30 @@ Settings
 GET /api/method/knowledge_hub.api.settings.get_preferences
 
 POST /api/method/knowledge_hub.api.settings.update_preferences
+```
+
+Taxonomy
+
+```text
+GET /api/method/knowledge_hub.api.taxonomy.list_categories
+
+POST /api/method/knowledge_hub.api.taxonomy.create_category
+
+POST /api/method/knowledge_hub.api.taxonomy.update_category
+
+POST /api/method/knowledge_hub.api.taxonomy.archive_category
+
+POST /api/method/knowledge_hub.api.taxonomy.delete_category
+
+GET /api/method/knowledge_hub.api.taxonomy.list_tags
+
+POST /api/method/knowledge_hub.api.taxonomy.create_tag
+
+POST /api/method/knowledge_hub.api.taxonomy.update_tag
+
+POST /api/method/knowledge_hub.api.taxonomy.archive_tag
+
+POST /api/method/knowledge_hub.api.taxonomy.delete_tag
 ```
 
 ---
