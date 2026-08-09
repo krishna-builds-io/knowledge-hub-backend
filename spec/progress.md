@@ -4,9 +4,9 @@ Last updated: 2026-08-09
 
 ## Current Phase
 
-Follow-up prioritization checkpoint.
+Backend tests checkpoint.
 
-Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usable module foundations. Cross-module API error messages surface server details instead of only generic fallbacks. Settings, frontend polish, and regression checklist milestones are committed; the project is ready to prioritize follow-up hardening.
+Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usable module foundations. Cross-module API error messages surface server details instead of only generic fallbacks. Settings, frontend polish, and regression checklist milestones are committed; backend API tests are the next hardening track.
 
 ## Completed
 
@@ -214,12 +214,15 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
 - Regression checklist started:
   - `spec/regression-checklist.md` added
   - regression checklist milestone committed
+- Backend tests started:
+  - Workspace API integration tests added
+  - Workspace API test run completed with 7 tests
 
 ## Next
 
-1. Review and prioritize known follow-ups.
-2. Choose the next hardening track.
-3. Start the selected follow-up in a small checkpoint.
+1. Clean minor formatting in Workspace test file.
+2. Commit Workspace API tests.
+3. Start Notes API tests.
 
 ## Pending Modules
 
