@@ -4,9 +4,9 @@ Last updated: 2026-08-09
 
 ## Current Phase
 
-Backend tests checkpoint.
+MVP readiness review.
 
-Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usable module foundations. Cross-module API error messages surface server details instead of only generic fallbacks. Settings, frontend polish, and regression checklist milestones are committed; backend API tests are the next hardening track.
+Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usable module foundations. Cross-module API error messages surface server details instead of only generic fallbacks. Backend integration tests pass with 52 tests, and the frontend production build passes. The project is now in final MVP readiness review.
 
 ## Completed
 
@@ -234,12 +234,15 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - Dashboard API tests milestone committed
   - Full backend app test suite completed with 52 tests
   - Frontend production build verification passed
+- MVP readiness review started:
+  - `spec/mvp-readiness-review.md` added
+  - MVP modules checked against `PRD.md`, `FBD.md`, and `SDD.md`
 
 ## Next
 
-1. Commit frontend build progress update.
-2. Review final MVP readiness gaps from specs and regression checklist.
-3. Decide final polish scope before closing MVP.
+1. Commit MVP readiness review progress.
+2. Run frontend lint verification.
+3. Complete final manual regression checklist on desktop and mobile.
 
 ## Pending Modules
 
@@ -251,7 +254,7 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
 - UI components now use Radix UI primitives through shadcn/ui.
 - Workspace archived fields may arrive from Frappe as `0` or `1`; normalize or cast before rendering.
 - Workspace form reset/default handling should be watched while editing.
-- Delete workspace behavior must be revisited when notes/tasks become child records.
+- Workspace delete behavior with linked notes/tasks needs a final Version 1 policy decision; protected delete plus archive fallback is recommended.
 - Tasks spec currently says workspace is optional, but implementation now uses required workspace for consistency with Notes.
 - Required-field `*` indicators are intentionally deferred; validation remains handled by Zod/React Hook Form.
 - Route-level code splitting can be added later.
