@@ -4,9 +4,9 @@ Last updated: 2026-08-09
 
 ## Current Phase
 
-Final review checkpoint.
+Follow-up prioritization checkpoint.
 
-Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usable module foundations. Cross-module API error messages surface server details instead of only generic fallbacks. Frontend polish is mostly complete; the project is ready for final review and commit preparation.
+Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usable module foundations. Cross-module API error messages surface server details instead of only generic fallbacks. Settings, frontend polish, and regression checklist milestones are committed; the project is ready to prioritize follow-up hardening.
 
 ## Completed
 
@@ -209,12 +209,17 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - frontend build passes after Login polish
   - settings API syntax check passes after final review
   - frontend/backend changed-file review completed
+  - backend Settings milestone committed
+  - frontend Settings/polish milestone committed
+- Regression checklist started:
+  - `spec/regression-checklist.md` added
+  - regression checklist milestone committed
 
 ## Next
 
-1. Commit current Settings and frontend polish milestone.
-2. Plan next feature/follow-up work.
-3. Continue browser regression checks as needed.
+1. Review and prioritize known follow-ups.
+2. Choose the next hardening track.
+3. Start the selected follow-up in a small checkpoint.
 
 ## Pending Modules
 
