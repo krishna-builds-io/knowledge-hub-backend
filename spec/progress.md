@@ -4,9 +4,9 @@ Last updated: 2026-08-09
 
 ## Current Phase
 
-Profile checkpoint ready to commit.
+API error message UX checkpoint.
 
-Workspace, Notes, Tasks, Search, Dashboard, and Profile now have usable module foundations. Profile browser verification passed; next step is committing the Profile checkpoint.
+Workspace, Notes, Tasks, Search, Dashboard, and Profile now have usable module foundations. Profile browser verification passed; cross-module API error messages now surface server details instead of only generic fallbacks.
 
 ## Completed
 
@@ -147,6 +147,14 @@ Workspace, Notes, Tasks, Search, Dashboard, and Profile now have usable module f
   - Profile page wired with account and password forms
   - frontend build passes after Profile page
   - Profile browser verification passed
+- Cross-module UX improvements:
+  - reusable API error parser added
+  - workspace mutation hooks show server error messages
+  - note mutation hooks show server error messages
+  - task mutation hooks show server error messages
+  - profile mutation hooks show server error messages
+  - login page shows server error message
+  - frontend build passes after API error-message updates
 - Shared UI components started:
   - button
   - card
@@ -161,8 +169,9 @@ Workspace, Notes, Tasks, Search, Dashboard, and Profile now have usable module f
 
 ## Next
 
-1. Commit Profile module checkpoint.
-2. Start Settings module.
+1. Verify server error messages in browser for one or two failing actions.
+2. Commit Profile/error-message checkpoint.
+3. Start Settings module.
 
 ## Pending Modules
 
