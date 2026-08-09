@@ -254,12 +254,17 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - `category` and `tags` fields added to Knowledge Hub Task
   - migrate completed on `kh.localhost`
   - existing backend test suite completed with 52 tests
+  - Tags and Categories DocType changes committed
+  - `knowledge_hub.api.taxonomy` added
+  - taxonomy API syntax check passed with `python3 -m py_compile`
+  - taxonomy API integration tests added
+  - taxonomy API test run completed with 20 tests
 
 ## Next
 
-1. Commit Tags and Categories DocType changes.
-2. Add taxonomy backend APIs.
-3. Add taxonomy API integration tests.
+1. Commit taxonomy API and tests.
+2. Update Note APIs to support category and tags.
+3. Update Task APIs to support category and tags.
 
 ## Pending Modules
 
