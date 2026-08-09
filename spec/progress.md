@@ -219,12 +219,15 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - Workspace API test run completed with 7 tests
   - Notes API integration tests added
   - Notes API test run completed with 11 tests
+  - Tasks API integration tests added
+  - task create/update workspace argument now allows app-level missing-workspace validation
+  - Tasks API test run completed with 15 tests
 
 ## Next
 
-1. Commit Notes API tests.
-2. Start Tasks API integration tests.
-3. Run Tasks tests on `kh.localhost`.
+1. Clean minor formatting in Task API.
+2. Commit Tasks API tests.
+3. Start Profile and Settings API tests.
 
 ## Pending Modules
 

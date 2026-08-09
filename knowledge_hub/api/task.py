@@ -52,8 +52,7 @@ def _validate_task_options(status: str, priority: str):
 	if priority not in VALID_PRIORITIES:
 		frappe.throw(_("Invalid priority"), frappe.ValidationError)
 
-
-
+		
 @frappe.whitelist(methods=["GET"])
 def list_tasks(workspace: str | None = None):
 	filters = {"owner": frappe.session.user}
@@ -76,7 +75,14 @@ def get_task(name: str):
 
 
 @frappe.whitelist(methods=["POST"])
-def create_task(title: str, workspace: str, description: str | None = None, status: str = "Open", priority: str = "Medium", due_date: str | None = None):
+def create_task(
+	title: str,
+	workspace: str | None = None,
+	description: str | None = None,
+	status: str = "Open",
+	priority: str = "Medium",
+	due_date: str | None = None,
+):
 	_validate_workspace_owner(workspace)
 	_validate_task_options(status, priority)
 
@@ -96,7 +102,15 @@ def create_task(title: str, workspace: str, description: str | None = None, stat
 
 
 @frappe.whitelist(methods=["POST"])
-def update_task(name: str, title: str, workspace: str, description: str | None = None, status: str = "Open", priority: str = "Medium", due_date: str | None = None):
+def update_task(
+	name: str,
+	title: str,
+	workspace: str | None = None,
+	description: str | None = None,
+	status: str = "Open",
+	priority: str = "Medium",
+	due_date: str | None = None,
+):
 	doc = _get_task_or_throw(name)
 	_validate_workspace_owner(workspace)
 	_validate_task_options(status, priority)
