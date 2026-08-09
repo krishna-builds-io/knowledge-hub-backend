@@ -10,6 +10,8 @@
   "content",
   "content_type",
   "workspace",
+  "category",
+  "tags",
   "favorite",
   "archived"
  ],
@@ -51,13 +53,25 @@
    "fieldname": "archived",
    "fieldtype": "Check",
    "label": "Archived"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Knowledge Hub Category"
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Table",
+   "label": "Tags",
+   "options": "Knowledge Hub Note Tag"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-08 21:58:27.334494",
- "modified_by": "krishnakmrs19@gmail.com",
+ "modified": "2026-08-09 18:36:23.507273",
+ "modified_by": "Administrator",
  "module": "Knowledge Hub",
  "name": "Knowledge Hub Note",
  "owner": "Administrator",

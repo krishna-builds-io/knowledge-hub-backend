@@ -244,12 +244,22 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - Tags and Categories selected as the first Version 2 feature
   - `spec/tags-categories.md` added
   - `PRD.md`, `FBD.md`, and `SDD.md` updated for taxonomy scope
+  - Version 2 Tags and Categories planning committed
+- Tags and Categories backend started:
+  - `Knowledge Hub Category` DocType added
+  - `Knowledge Hub Tag` DocType added
+  - `Knowledge Hub Note Tag` child DocType added
+  - `Knowledge Hub Task Tag` child DocType added
+  - `category` and `tags` fields added to Knowledge Hub Note
+  - `category` and `tags` fields added to Knowledge Hub Task
+  - migrate completed on `kh.localhost`
+  - existing backend test suite completed with 52 tests
 
 ## Next
 
-1. Commit Version 2 Tags and Categories planning.
-2. Design backend DocTypes for Category, Tag, Note Tag, and Task Tag.
-3. Add taxonomy backend APIs and tests.
+1. Commit Tags and Categories DocType changes.
+2. Add taxonomy backend APIs.
+3. Add taxonomy API integration tests.
 
 ## Pending Modules
 
