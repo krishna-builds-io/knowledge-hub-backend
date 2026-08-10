@@ -279,12 +279,22 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - category and tag query hooks added
   - category and tag create/update mutation hooks added
   - frontend build passes after taxonomy data layer
+  - Note frontend types updated with category and tags
+  - Note form schema updated with category and tags
+  - Note API list filters updated for workspace, category, and tag
+  - frontend build passes after Note taxonomy data changes
+  - Note form wired to category select and tag checkboxes
+  - frontend build passes after Note form taxonomy controls
+  - Notes page category and tag filters added
+  - frontend build passes after Notes taxonomy filters
+  - Note cards and detail page display category and tag badges
+  - frontend build passes after Note taxonomy display
 
 ## Next
 
-1. Commit frontend taxonomy data layer.
-2. Wire category and tag options into Note forms.
-3. Update Note frontend types, schema, and API filters.
+1. Browser-test Note create/edit/filter with category and tags.
+2. Commit Note frontend taxonomy changes.
+3. Start Task frontend taxonomy wiring.
 
 ## Pending Modules
 
