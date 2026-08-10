@@ -272,12 +272,19 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - Task API test run completed with 21 tests
   - full backend app test suite completed with 84 tests
   - Note and Task taxonomy API updates committed
+- Tags and Categories frontend started:
+  - empty `src/features/taxonomy` structure created
+  - taxonomy TypeScript types added
+  - taxonomy API client functions added
+  - category and tag query hooks added
+  - category and tag create/update mutation hooks added
+  - frontend build passes after taxonomy data layer
 
 ## Next
 
-1. Commit backend taxonomy progress update.
-2. Start frontend taxonomy data layer.
-3. Wire category and tag options into Note forms.
+1. Commit frontend taxonomy data layer.
+2. Wire category and tag options into Note forms.
+3. Update Note frontend types, schema, and API filters.
 
 ## Pending Modules
 
