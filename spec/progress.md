@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-08-09
+Last updated: 2026-08-10
 
 ## Current Phase
 
@@ -289,12 +289,22 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - frontend build passes after Notes taxonomy filters
   - Note cards and detail page display category and tag badges
   - frontend build passes after Note taxonomy display
+  - Note taxonomy UI committed
+- Task taxonomy frontend started:
+  - Task frontend types updated with category and tags
+  - Task form schema updated with category and tags
+  - Task API list filters updated for workspace, category, and tag
+  - Task query hook accepts filter objects
+  - Task form wired to category select and tag checkboxes
+  - Tasks page category and tag filters added
+  - Task cards and detail page display category and tag badges
+  - frontend build passes after Task taxonomy UI
 
 ## Next
 
-1. Browser-test Note create/edit/filter with category and tags.
-2. Commit Note frontend taxonomy changes.
-3. Start Task frontend taxonomy wiring.
+1. Browser-test Task create/edit/filter with category and tags.
+2. Commit Task frontend taxonomy changes.
+3. Start Search taxonomy filters.
 
 ## Pending Modules
 
