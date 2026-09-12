@@ -299,12 +299,17 @@ Workspace, Notes, Tasks, Search, Dashboard, Profile, and Settings now have usabl
   - Tasks page category and tag filters added
   - Task cards and detail page display category and tag badges
   - frontend build passes after Task taxonomy UI
+  - Settings page taxonomy creation card added for app-owned categories and tags
+  - Note and Task forms show a toast when client validation blocks submit
+  - Note and Task APIs accept tag payloads as arrays or JSON-string arrays
+  - frontend build passes after taxonomy form/debug fixes
+  - Note and Task API syntax check passes after tag payload parsing fix
 
 ## Next
 
-1. Browser-test Task create/edit/filter with category and tags.
-2. Commit Task frontend taxonomy changes.
-3. Start Search taxonomy filters.
+1. Create categories/tags from Settings while logged in as the app user.
+2. Browser-test Note and Task create/edit/filter with category and tags.
+3. Commit taxonomy UI and payload parsing fixes.
 
 ## Pending Modules
 

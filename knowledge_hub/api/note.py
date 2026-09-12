@@ -57,9 +57,15 @@ def _get_note_tag_names(note: str):
 	return [row.tag for row in rows]
 
 
-def _normalize_tags(tags: list[str] | None):
+def _normalize_tags(tags: list[str] | str | None):
 	if not tags:
 		return []
+
+	if isinstance(tags, str):
+		tags = frappe.parse_json(tags)
+
+		if isinstance(tags, str):
+			tags = [tags]
 
 	unique_tags = []
 
@@ -165,7 +171,7 @@ def create_note(
 	content_type: str = "Plain Text",
 	workspace: str | None = None,
 	category: str | None = None,
-	tags: list[str] | None = None,
+	tags: list[str] | str | None = None,
 ):
 	_validate_workspace_owner(workspace)
 	_validate_category_owner(category)
@@ -194,7 +200,7 @@ def update_note(
 	content_type: str = "Plain Text",
 	workspace: str | None = None,
 	category: str | None = None,
-	tags: list[str] | None = None,
+	tags: list[str] | str | None = None,
 ):
 	doc = _get_note_or_throw(name)
 	_validate_workspace_owner(workspace)
